@@ -1,0 +1,1183 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مترجم لغة GiLVac (گيلڤاك)</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #6a11cb;
+            --primary-dark: #4a0ca3;
+            --secondary: #ff6b6b;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --success: #20bf6b;
+            --warning: #fa8231;
+            --danger: #eb3b5a;
+            --info: #2d98da;
+            --gray: #6c757d;
+            --border-radius: 16px;
+            --box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4edf5 100%);
+            color: var(--dark);
+            min-height: 100vh;
+            padding: 15px;
+            overflow-x: hidden;
+            line-height: 1.6;
+            transition: var(--transition);
+        }
+
+        body.dark-mode {
+            background: linear-gradient(135deg, #0f0c29 0%, #302b63 100%);
+            color: var(--light);
+        }
+
+        .container {
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 0;
+        }
+
+        /* Header Styles */
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+            padding: 20px 15px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .dark-mode header {
+            background: rgba(0, 0, 0, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            border-radius: 5px 5px 0 0;
+        }
+
+        header h1 {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 8px;
+            font-weight: 900;
+        }
+
+        .dark-mode header h1 {
+            color: #fff;
+        }
+
+        .language-name {
+            font-size: 2rem;
+            color: var(--secondary);
+            margin: 0 5px;
+            font-weight: bold;
+        }
+
+        .tagline {
+            font-size: 0.95rem;
+            color: var(--gray);
+            margin-top: 5px;
+        }
+
+        .dark-mode .tagline {
+            color: #ddd;
+        }
+
+        /* Translation Area */
+        .translation-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .input-section, .output-section {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            padding: 20px 15px;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .dark-mode .input-section, 
+        .dark-mode .output-section {
+            background: rgba(0, 0, 0, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid #eee;
+        }
+
+        .dark-mode .section-header {
+            border-bottom: 2px solid #333;
+        }
+
+        .section-header h2 {
+            font-size: 1.4rem;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .dark-mode .section-header h2 {
+            color: #fff;
+        }
+
+        .text-container {
+            position: relative;
+            margin-bottom: 15px;
+        }
+
+        textarea {
+            width: 100%;
+            height: 180px;
+            padding: 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            resize: vertical;
+            transition: var(--transition);
+            background: #fff;
+            color: var(--dark);
+        }
+
+        .dark-mode textarea {
+            border: 2px solid #444;
+            background: #111;
+            color: #fff;
+        }
+
+        textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(106, 17, 203, 0.2);
+        }
+
+        .char-count {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            font-size: 0.85rem;
+            color: var(--gray);
+            background: rgba(255, 255, 255, 0.8);
+            padding: 3px 10px;
+            border-radius: 20px;
+        }
+
+        .dark-mode .char-count {
+            background: rgba(0, 0, 0, 0.5);
+            color: #aaa;
+        }
+
+        /* Buttons */
+        .action-buttons {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            padding: 12px 10px;
+            border: none;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: var(--transition);
+            background: #f0f0f0;
+            color: var(--dark);
+        }
+
+        .dark-mode .btn {
+            background: #333;
+            color: #fff;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-secondary {
+            background: var(--secondary);
+            color: white;
+        }
+
+        .btn-success {
+            background: var(--success);
+            color: white;
+        }
+
+        .btn-warning {
+            background: var(--warning);
+            color: white;
+        }
+
+        .btn-danger {
+            background: var(--danger);
+            color: white;
+        }
+
+        .btn-info {
+            background: var(--info);
+            color: white;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn:active {
+            transform: translateY(0);
+        }
+
+        /* Translation Controls */
+        .translation-controls {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            padding: 20px 15px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .dark-mode .translation-controls {
+            background: rgba(0, 0, 0, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .controls-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+        }
+
+        .control-group {
+            margin-bottom: 15px;
+        }
+
+        .control-group h3 {
+            font-size: 1.2rem;
+            margin-bottom: 12px;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .dark-mode .control-group h3 {
+            color: #fff;
+        }
+
+        .toggle-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+        }
+
+        .toggle-switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 30px;
+        }
+
+        .toggle-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: var(--transition);
+            border-radius: 34px;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 22px;
+            width: 22px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: var(--transition);
+            border-radius: 50%;
+        }
+
+        input:checked + .slider {
+            background-color: var(--success);
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(30px);
+        }
+
+        .radio-group {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .radio-option {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px;
+            background: rgba(106, 17, 203, 0.05);
+            border-radius: 12px;
+        }
+
+        .dark-mode .radio-option {
+            background: rgba(106, 17, 203, 0.1);
+        }
+
+        .radio-option input {
+            width: 18px;
+            height: 18px;
+        }
+
+        /* Symbol Table */
+        .symbol-table-container {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            padding: 20px 15px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .dark-mode .symbol-table-container {
+            background: rgba(0, 0, 0, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .symbol-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+
+        .symbol-table th, .symbol-table td {
+            padding: 12px 8px;
+            text-align: center;
+            border-bottom: 1px solid #eee;
+            font-size: 0.9rem;
+        }
+
+        .dark-mode .symbol-table th, 
+        .dark-mode .symbol-table td {
+            border-bottom: 1px solid #333;
+        }
+
+        .symbol-table th {
+            background-color: rgba(106, 17, 203, 0.1);
+            color: var(--primary);
+        }
+
+        .dark-mode .symbol-table th {
+            background-color: rgba(106, 17, 203, 0.3);
+            color: #fff;
+        }
+
+        .symbol-table tr:hover {
+            background-color: rgba(106, 17, 203, 0.05);
+        }
+
+        .dark-mode .symbol-table tr:hover {
+            background-color: rgba(106, 17, 203, 0.2);
+        }
+
+        .symbol-cell {
+            font-size: 1.8rem;
+            padding: 12px;
+            cursor: pointer;
+            transition: var(--transition);
+            border-radius: 8px;
+        }
+
+        .symbol-cell:hover {
+            background: rgba(106, 17, 203, 0.1);
+            transform: scale(1.2);
+        }
+
+        .dark-mode .symbol-cell:hover {
+            background: rgba(106, 17, 203, 0.3);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 25px 15px;
+            margin-top: 30px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .dark-mode footer {
+            background: rgba(0, 0, 0, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        footer p {
+            color: var(--gray);
+            margin-bottom: 12px;
+            font-size: 0.9rem;
+        }
+
+        .dark-mode footer p {
+            color: #aaa;
+        }
+
+        .feature-suggestions {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 12px;
+            margin: 20px 0;
+        }
+
+        .feature {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            background: rgba(106, 17, 203, 0.08);
+            padding: 15px 10px;
+            border-radius: 12px;
+            color: var(--primary);
+            transition: var(--transition);
+        }
+
+        .feature:hover {
+            transform: translateY(-5px);
+        }
+
+        .dark-mode .feature {
+            background: rgba(106, 17, 203, 0.2);
+            color: #fff;
+        }
+
+        .feature i {
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+        }
+
+        /* Animation */
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .pulse {
+            animation: pulse 0.4s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.5s ease forwards;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+            40% {transform: translateY(-20px);}
+            60% {transform: translateY(-10px);}
+        }
+
+        .bounce {
+            animation: bounce 1s;
+        }
+
+        /* Toast Notification */
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 30px;
+            font-size: 1rem;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+        }
+
+        .toast.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .dark-mode .toast {
+            background: rgba(255, 255, 255, 0.9);
+            color: var(--dark);
+        }
+
+        /* Floating Action Button */
+        .fab-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 100;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 15px;
+        }
+
+        .fab {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: var(--primary);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: 0 6px 15px rgba(106, 17, 203, 0.4);
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+        }
+
+        .fab:hover {
+            transform: scale(1.1);
+        }
+
+        .fab-secondary {
+            background: var(--secondary);
+            box-shadow: 0 6px 15px rgba(255, 107, 107, 0.4);
+        }
+
+        .fab-menu {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 30px;
+            padding: 15px 10px;
+            box-shadow: var(--box-shadow);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            transform: scale(0);
+            transform-origin: bottom right;
+            transition: var(--transition);
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .fab-menu.active {
+            transform: scale(1);
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .dark-mode .fab-menu {
+            background: rgba(0, 0, 0, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .fab-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 15px;
+            background: rgba(106, 17, 203, 0.08);
+            border-radius: 30px;
+            color: var(--primary);
+            cursor: pointer;
+            transition: var(--transition);
+            white-space: nowrap;
+        }
+
+        .dark-mode .fab-item {
+            background: rgba(106, 17, 203, 0.2);
+            color: #fff;
+        }
+
+        .fab-item:hover {
+            background: rgba(106, 17, 203, 0.2);
+        }
+
+        .dark-mode .fab-item:hover {
+            background: rgba(106, 17, 203, 0.4);
+        }
+
+        /* Responsive Design */
+        @media (min-width: 768px) {
+            .container {
+                max-width: 720px;
+            }
+            
+            header h1 {
+                font-size: 2.2rem;
+            }
+            
+            .action-buttons {
+                grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            }
+            
+            textarea {
+                height: 200px;
+            }
+            
+            .controls-grid {
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            }
+            
+            .radio-group {
+                flex-direction: row;
+                flex-wrap: wrap;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>مترجم لغة <span class="language-name">GiLVac</span></h1>
+            <div class="tagline">
+                ترجمة فورية بين العربية والگيلڤاك - لغة الخصوصية والسرية
+            </div>
+        </header>
+
+        <div class="translation-controls">
+            <div class="controls-grid">
+                <div class="control-group">
+                    <h3><i class="fas fa-exchange-alt"></i> اتجاه الترجمة</h3>
+                    <div class="radio-group">
+                        <label class="radio-option">
+                            <input type="radio" name="translation-direction" value="ar-to-gilvac" checked> 
+                            عربي → گيلڤاك
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="translation-direction" value="gilvac-to-ar"> 
+                            گيلڤاك → عربي
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="translation-direction" value="auto"> 
+                            الترجمة التلقائية
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="control-group">
+                    <h3><i class="fas fa-moon"></i> الوضع الليلي</h3>
+                    <div class="toggle-container">
+                        <span>غير مفعل</span>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="dark-mode-toggle">
+                            <span class="slider"></span>
+                        </label>
+                        <span>مفعل</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="translation-container">
+            <div class="input-section">
+                <div class="section-header">
+                    <h2><i class="fas fa-keyboard"></i> النص المدخل</h2>
+                    <button class="btn btn-danger" id="clear-input">
+                        <i class="fas fa-trash"></i> مسح
+                    </button>
+                </div>
+                <div class="text-container">
+                    <textarea id="input-text" placeholder="اكتب النص هنا للترجمة..."></textarea>
+                    <div class="char-count">عدد الأحرف: <span id="input-char-count">0</span></div>
+                </div>
+                <div class="action-buttons">
+                    <button class="btn" id="paste-text">
+                        <i class="fas fa-paste"></i> لصق
+                    </button>
+                    <button class="btn btn-success" id="sample-text">
+                        <i class="fas fa-lightbulb"></i> تجريبي
+                    </button>
+                    <button class="btn btn-primary" id="swap-languages">
+                        <i class="fas fa-sync-alt"></i> تبديل
+                    </button>
+                </div>
+            </div>
+
+            <div class="output-section">
+                <div class="section-header">
+                    <h2><i class="fas fa-language"></i> النتيجة المترجمة</h2>
+                    <div>
+                        <button class="btn btn-secondary" id="copy-output">
+                            <i class="fas fa-copy"></i> نسخ
+                        </button>
+                    </div>
+                </div>
+                <div class="text-container">
+                    <textarea id="output-text" readonly placeholder="الترجمة ستظهر هنا..."></textarea>
+                    <div class="char-count">عدد الأحرف: <span id="output-char-count">0</span></div>
+                </div>
+                <div class="action-buttons">
+                    <button class="btn btn-warning" id="download-output">
+                        <i class="fas fa-download"></i> تنزيل
+                    </button>
+                    <button class="btn" id="suggest-symbol">
+                        <i class="fas fa-plus"></i> اقتراح رمز
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="symbol-table-container">
+            <div class="section-header">
+                <h2><i class="fas fa-table"></i> جدول رموز لغة GiLVac</h2>
+            </div>
+            <div class="table-responsive">
+                <table class="symbol-table">
+                    <thead>
+                        <tr>
+                            <th>الرمز (GiLVac)</th>
+                            <th>المكافئ العربي</th>
+                            <th>الرمز (GiLVac)</th>
+                            <th>المكافئ العربي</th>
+                        </tr>
+                    </thead>
+                    <tbody id="symbol-table-body">
+                        <!-- Symbols will be populated by JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <footer>
+            <div class="feature-suggestions">
+                <div class="feature">
+                    <i class="fas fa-history"></i>
+                    <span>سجل الترجمات</span>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-camera"></i>
+                    <span>ترجمة بالكاميرا</span>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-book"></i>
+                    <span>قاموس المفردات</span>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-users"></i>
+                    <span>مجتمع گيلڤاك</span>
+                </div>
+            </div>
+            <p>مترجم لغة GiLVac (گيلڤاك) - أداة للخصوصية والسرية اللغوية</p>
+            <p>تم تطويره باستخدام HTML, CSS, JavaScript</p>
+        </footer>
+    </div>
+
+    <div class="fab-container">
+        <div class="fab-menu" id="fab-menu">
+            <div class="fab-item" id="fab-dark-mode">
+                <i class="fas fa-moon"></i> الوضع الليلي
+            </div>
+            <div class="fab-item" id="fab-symbols">
+                <i class="fas fa-font"></i> جدول الرموز
+            </div>
+            <div class="fab-item" id="fab-help">
+                <i class="fas fa-question-circle"></i> المساعدة
+            </div>
+        </div>
+        <button class="fab" id="main-fab">
+            <i class="fas fa-bars"></i>
+        </button>
+        <button class="fab fab-secondary" id="scroll-top">
+            <i class="fas fa-arrow-up"></i>
+        </button>
+    </div>
+
+    <div class="toast" id="toast">
+        <i class="fas fa-check-circle"></i>
+        <span id="toast-message">تم النسخ بنجاح!</span>
+    </div>
+
+    <script>
+        // GiLVac symbol mapping
+        const symToAr = {
+            // الحركات
+            'ᅫ': 'ّ', 'ᅬ': 'ً', 'ᅭ': 'ٖ', 'ᅮ': 'ٰ', 'ᅯ': 'ٓ',
+            'ᅰ': 'ِ', 'ᅱ': 'َ', 'ᅲ': 'ـ', 'ᅢ': 'ْ', 'ᅣ': 'ٍ',
+            'ᅤ': 'ٌ', 'ᅥ': 'ُ',
+
+            // الحروف
+            'ᅡ': 'ر', 'ᅞ': 'ڤ', 'ᅝ': 'پ', 'ᅜ': 'ق', 'ᅘ': 'گ',
+            'ᅗ': 'ص', 'ᅓ': 'چ', 'ᅒ': 'ف', 'ᅎ': 'ٱ', 'ᅍ': 'ع',
+            'ᅉ': 'إ', 'ᅈ': 'س', 'ᅄ': 'أ', 'ᅃ': 'ن', 'ᄿ': 'آ',
+            'ᄾ': 'م', 'ᄺ': 'ء', 'ᄻ': 'ؤ', 'ᄹ': 'ل', 'ᄵ': 'ئ',
+            'ᄴ': 'ك', 'ᄰ': 'ى', 'ᄯ': 'ي', 'ᄫ': 'ة', 'ᄪ': 'ط',
+            'ᄦ': 'غ', 'ᄥ': 'ح', 'ᄡ': 'ظ', 'ᄠ': 'ز', 'ᄜ': 'ض',
+            'ᄛ': 'و', 'ᄗ': 'ذ', 'ᄖ': 'ه', 'ᄊ': 'خ', 'ᄄ': 'د',
+            'ᄐ': 'ث', 'ᄏ': 'ج', 'ᄉ': 'ت', 'ᄇ': 'ب', 'ᄂ': 'ش',
+            'ᄀ': 'ا'
+        };
+
+        // Create reverse mapping
+        const arToSym = Object.entries(symToAr).reduce((acc, [key, value]) => {
+            acc[value] = key;
+            return acc;
+        }, {});
+
+        // DOM Elements
+        const inputText = document.getElementById('input-text');
+        const outputText = document.getElementById('output-text');
+        const inputCharCount = document.getElementById('input-char-count');
+        const outputCharCount = document.getElementById('output-char-count');
+        const clearInputBtn = document.getElementById('clear-input');
+        const copyOutputBtn = document.getElementById('copy-output');
+        const pasteTextBtn = document.getElementById('paste-text');
+        const sampleTextBtn = document.getElementById('sample-text');
+        const downloadOutputBtn = document.getElementById('download-output');
+        const darkModeToggle = document.getElementById('dark-mode-toggle');
+        const symbolTableBody = document.getElementById('symbol-table-body');
+        const suggestSymbolBtn = document.getElementById('suggest-symbol');
+        const directionRadios = document.querySelectorAll('input[name="translation-direction"]');
+        const swapLanguagesBtn = document.getElementById('swap-languages');
+        const mainFab = document.getElementById('main-fab');
+        const fabMenu = document.getElementById('fab-menu');
+        const scrollTopBtn = document.getElementById('scroll-top');
+        const toast = document.getElementById('toast');
+        const toastMessage = document.getElementById('toast-message');
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            // Populate symbol table
+            populateSymbolTable();
+            
+            // Set up event listeners
+            setupEventListeners();
+            
+            // Set sample text
+            setSampleText();
+            
+            // Set initial char count
+            updateCharCount();
+            
+            // Load dark mode preference
+            loadPreferences();
+        });
+
+        // Populate symbol table
+        function populateSymbolTable() {
+            const symbols = Object.entries(symToAr);
+            let html = '';
+            
+            for (let i = 0; i < symbols.length; i += 2) {
+                html += '<tr>';
+                for (let j = 0; j < 2; j++) {
+                    const index = i + j;
+                    if (index < symbols.length) {
+                        const [gilvac, arabic] = symbols[index];
+                        html += `
+                            <td class="symbol-cell" data-gilvac="${gilvac}" data-arabic="${arabic}">${gilvac}</td>
+                            <td>${arabic}</td>
+                        `;
+                    } else {
+                        html += '<td></td><td></td>';
+                    }
+                }
+                html += '</tr>';
+            }
+            
+            symbolTableBody.innerHTML = html;
+            
+            // Add click event to symbol cells
+            document.querySelectorAll('.symbol-cell').forEach(cell => {
+                cell.addEventListener('click', () => {
+                    const gilvac = cell.getAttribute('data-gilvac');
+                    inputText.value += gilvac;
+                    inputText.dispatchEvent(new Event('input'));
+                    inputText.focus();
+                    
+                    // Add animation effect
+                    cell.classList.add('pulse');
+                    setTimeout(() => cell.classList.remove('pulse'), 500);
+                    
+                    showToast('تم إضافة الرمز إلى النص');
+                });
+            });
+        }
+
+        // Set up event listeners
+        function setupEventListeners() {
+            // Input text event
+            inputText.addEventListener('input', () => {
+                translateText();
+                updateCharCount();
+            });
+            
+            // Clear input button
+            clearInputBtn.addEventListener('click', () => {
+                inputText.value = '';
+                outputText.value = '';
+                updateCharCount();
+                inputText.focus();
+                showToast('تم مسح الحقول');
+            });
+            
+            // Copy output button
+            copyOutputBtn.addEventListener('click', () => {
+                if (!outputText.value) {
+                    showToast('لا يوجد نص للنسخ');
+                    return;
+                }
+                
+                outputText.select();
+                document.execCommand('copy');
+                showToast('تم نسخ الترجمة');
+            });
+            
+            // Paste text button
+            pasteTextBtn.addEventListener('click', async () => {
+                try {
+                    const text = await navigator.clipboard.readText();
+                    inputText.value = text;
+                    inputText.dispatchEvent(new Event('input'));
+                    showToast('تم لصق النص');
+                } catch (err) {
+                    showToast('تعذر الوصول إلى الحافظة');
+                }
+            });
+            
+            // Sample text button
+            sampleTextBtn.addEventListener('click', () => {
+                setSampleText();
+                showToast('تم تحميل النص التجريبي');
+            });
+            
+            // Download output button
+            downloadOutputBtn.addEventListener('click', () => {
+                const text = outputText.value;
+                if (!text) {
+                    showToast('لا يوجد نص للتنزيل');
+                    return;
+                }
+                
+                const blob = new Blob([text], { type: 'text/plain' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = 'ترجمة-گيلڤاك.txt';
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+                showToast('تم تنزيل الترجمة');
+            });
+            
+            // Dark mode toggle
+            darkModeToggle.addEventListener('change', () => {
+                document.body.classList.toggle('dark-mode', darkModeToggle.checked);
+                // Save preference
+                localStorage.setItem('darkMode', darkModeToggle.checked);
+                showToast(darkModeToggle.checked ? 'تم تفعيل الوضع الليلي' : 'تم تعطيل الوضع الليلي');
+            });
+            
+            // Translation direction
+            directionRadios.forEach(radio => {
+                radio.addEventListener('change', translateText);
+            });
+            
+            // Swap languages
+            swapLanguagesBtn.addEventListener('click', () => {
+                const currentDirection = document.querySelector('input[name="translation-direction"]:checked').value;
+                
+                if (currentDirection === 'ar-to-gilvac') {
+                    document.querySelector('input[value="gilvac-to-ar"]').checked = true;
+                } else if (currentDirection === 'gilvac-to-ar') {
+                    document.querySelector('input[value="ar-to-gilvac"]').checked = true;
+                }
+                
+                // Swap input and output text
+                const temp = inputText.value;
+                inputText.value = outputText.value;
+                outputText.value = temp;
+                
+                translateText();
+                showToast('تم تبديل اتجاه الترجمة');
+            });
+            
+            // Suggest symbol
+            suggestSymbolBtn.addEventListener('click', () => {
+                showToast('سيتم مراجعة اقتراحك وإضافته في التحديثات القادمة');
+            });
+            
+            // Floating Action Button
+            mainFab.addEventListener('click', (e) => {
+                e.stopPropagation();
+                fabMenu.classList.toggle('active');
+                mainFab.innerHTML = fabMenu.classList.contains('active') ? 
+                    '<i class="fas fa-times"></i>' : 
+                    '<i class="fas fa-bars"></i>';
+            });
+            
+            // Fab menu items
+            document.getElementById('fab-dark-mode').addEventListener('click', () => {
+                darkModeToggle.checked = !darkModeToggle.checked;
+                document.body.classList.toggle('dark-mode', darkModeToggle.checked);
+                localStorage.setItem('darkMode', darkModeToggle.checked);
+                fabMenu.classList.remove('active');
+                mainFab.innerHTML = '<i class="fas fa-bars"></i>';
+                showToast(darkModeToggle.checked ? 'تم تفعيل الوضع الليلي' : 'تم تعطيل الوضع الليلي');
+            });
+            
+            document.getElementById('fab-symbols').addEventListener('click', () => {
+                document.querySelector('.symbol-table-container').scrollIntoView({behavior: 'smooth'});
+                fabMenu.classList.remove('active');
+                mainFab.innerHTML = '<i class="fas fa-bars"></i>';
+                showToast('تم التمرير إلى جدول الرموز');
+            });
+            
+            document.getElementById('fab-help').addEventListener('click', () => {
+                alert('مرحبًا بك في مترجم لغة GiLVac!\n\n1. اكتب النص في الحقل العلوي\n2. اختر اتجاه الترجمة\n3. اضغط على أي رمز في الجدول لإضافته\n4. استخدم الأزرار للنسخ والتنزيل\n\nللمزيد من المساعدة تواصل معنا.');
+                fabMenu.classList.remove('active');
+                mainFab.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+            
+            // Scroll to top
+            scrollTopBtn.addEventListener('click', () => {
+                window.scrollTo({top: 0, behavior: 'smooth'});
+                scrollTopBtn.classList.add('bounce');
+                setTimeout(() => scrollTopBtn.classList.remove('bounce'), 1000);
+            });
+            
+            // Hide FAB menu when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!fabMenu.contains(e.target) && !mainFab.contains(e.target)) {
+                    fabMenu.classList.remove('active');
+                    mainFab.innerHTML = '<i class="fas fa-bars"></i>';
+                }
+            });
+        }
+
+        // Load preferences
+        function loadPreferences() {
+            const isDarkMode = localStorage.getItem('darkMode') === 'true';
+            darkModeToggle.checked = isDarkMode;
+            document.body.classList.toggle('dark-mode', isDarkMode);
+        }
+
+        // Update character count
+        function updateCharCount() {
+            inputCharCount.textContent = inputText.value.length;
+            outputCharCount.textContent = outputText.value.length;
+        }
+
+        // Set sample text
+        function setSampleText() {
+            inputText.value = 'هذا مثال على النص العربي الذي يمكن ترجمته إلى لغة گيلڤاك السرية.';
+            inputText.dispatchEvent(new Event('input'));
+        }
+
+        // Translate text
+        function translateText() {
+            const text = inputText.value;
+            if (!text) {
+                outputText.value = '';
+                updateCharCount();
+                return;
+            }
+            
+            const direction = document.querySelector('input[name="translation-direction"]:checked').value;
+            
+            let result = '';
+            
+            if (direction === 'ar-to-gilvac' || (direction === 'auto' && isArabic(text))) {
+                // Translate from Arabic to GiLVac
+                result = text.split('').map(char => {
+                    return arToSym[char] || char;
+                }).join('');
+            } else {
+                // Translate from GiLVac to Arabic
+                result = text.split('').map(char => {
+                    return symToAr[char] || char;
+                }).join('');
+            }
+            
+            outputText.value = result;
+            updateCharCount();
+            
+            // Add animation effect
+            outputText.classList.add('pulse');
+            setTimeout(() => outputText.classList.remove('pulse'), 500);
+        }
+
+        // Check if text is mainly Arabic
+        function isArabic(text) {
+            // Simple heuristic: if text contains any GiLVac character, it's probably GiLVac
+            const gilvacChars = Object.keys(symToAr).join('');
+            const gilvacRegex = new RegExp(`[${gilvacChars}]`);
+            
+            return !gilvacRegex.test(text);
+        }
+
+        // Show toast notification
+        function showToast(message) {
+            toastMessage.textContent = message;
+            toast.classList.add('show');
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+    </script>
+</body>
+</html>
