@@ -3,21 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>منبر القصائد الشيعي - النظام الكوني الرقمي</title>
+    <title>منبر القصائد الشيعي - النظام المتكامل</title>
     <style>
-        /* القاعدة الكونية */
+        /* أساسيات واقعية */
         :root {
-            --cosmic-gold: linear-gradient(135deg, #FFD700, #FFA500, #FF4500);
-            --divine-green: linear-gradient(135deg, #006400, #228B22, #32CD32);
-            --celestial-blue: radial-gradient(circle, #000080, #4169E1, #87CEEB);
-            --holy-glow: 0 0 50px rgba(212, 175, 55, 0.7);
-            --space-black: #000000;
-            --star-white: #FFFFFF;
-            --primary-color: #1a472a;
-            --secondary-color: #2e7d32;
-            --accent-color: #d4af37;
-            --text-color: #FFFFFF;
-            --shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+            --primary: #1a472a;
+            --secondary: #2e7d32;
+            --accent: #d4af37;
+            --light: #f8f9fa;
+            --dark: #333;
+            --danger: #dc3545;
+            --success: #28a745;
+            --warning: #ffc107;
+            --border: #dee2e6;
+            --shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
 
         * {
@@ -27,46 +26,27 @@
         }
 
         body {
-            font-family: 'Segoe UI', 'Tahoma', Geneva, 'Verdana', sans-serif;
-            line-height: 1.8;
-            color: var(--text-color);
-            background: var(--space-black);
-            background-image: 
-                radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 10px),
-                radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 5px),
-                radial-gradient(white, rgba(255,255,255,.1) 2px, transparent 10px);
-            background-size: 550px 550px, 350px 350px, 250px 250px;
-            background-position: 0 0, 40px 60px, 130px 270px;
-            min-height: 100vh;
-            animation: stars 60s linear infinite;
-        }
-
-        @keyframes stars {
-            0% { background-position: 0 0, 40px 60px, 130px 270px; }
-            100% { background-position: 550px 550px, 390px 410px, 380px 520px; }
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background: var(--light);
         }
 
         .container {
-            max-width: 1400px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
         }
 
-        /* الهيدر الكوني */
-        .cosmic-header {
-            background: linear-gradient(135deg, 
-                rgba(26, 71, 42, 0.95), 
-                rgba(46, 125, 50, 0.85),
-                rgba(0, 100, 0, 0.9));
-            color: var(--text-color);
-            padding: 1.5rem 0;
+        /* الهيدر العملي */
+        header {
+            background: var(--primary);
+            color: white;
+            padding: 1rem 0;
             position: sticky;
             top: 0;
-            z-index: 10000;
-            box-shadow: var(--holy-glow);
-            border-bottom: 3px solid transparent;
-            border-image: linear-gradient(45deg, gold, green, white) 1;
-            backdrop-filter: blur(10px);
+            z-index: 1000;
+            box-shadow: var(--shadow);
         }
 
         .header-content {
@@ -76,741 +56,692 @@
             flex-wrap: wrap;
         }
 
-        .cosmic-logo {
+        .logo {
             display: flex;
             align-items: center;
-            gap: 20px;
-            animation: logo-pulse 3s infinite;
+            gap: 15px;
         }
 
-        @keyframes logo-pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-        }
-
-        .cosmic-logo h1 {
-            font-size: 2.5rem;
-            background: var(--cosmic-gold);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+        .logo h1 {
+            font-size: 1.5rem;
             font-weight: bold;
         }
 
-        .logo-icon {
-            font-size: 4rem;
-            color: var(--accent-color);
-            filter: drop-shadow(0 0 10px gold);
-        }
-
-        /* التنقل الكوني */
-        .cosmic-nav {
-            position: relative;
-        }
-
-        .cosmic-nav ul {
+        /* التنقل البسيط */
+        nav ul {
             display: flex;
             list-style: none;
             gap: 1.5rem;
             flex-wrap: wrap;
         }
 
-        .cosmic-nav a {
-            color: var(--text-color);
+        nav a {
+            color: white;
             text-decoration: none;
-            font-weight: 600;
-            padding: 0.8rem 1.5rem;
-            border-radius: 25px;
-            background: rgba(255, 255, 255, 0.1);
-            border: 2px solid transparent;
-            border-image: linear-gradient(45deg, var(--accent-color), var(--secondary-color)) 1;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 0.8rem;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: background 0.3s;
+        }
+
+        nav a:hover {
+            background: rgba(255,255,255,0.1);
+        }
+
+        /* الأزرار العملية */
+        .btn {
+            padding: 0.5rem 1.5rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: var(--primary);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 1px solid var(--accent);
+        }
+
+        .btn-success {
+            background: var(--success);
+            color: white;
+        }
+
+        .btn-danger {
+            background: var(--danger);
+            color: white;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+
+        /* الأقسام العملية */
+        .section {
+            padding: 4rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--primary);
+            font-size: 2rem;
             position: relative;
-            overflow: hidden;
         }
 
-        .cosmic-nav a::before {
+        .section-title::after {
             content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: left 0.5s;
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: var(--accent);
+            margin: 10px auto;
         }
 
-        .cosmic-nav a:hover::before {
-            left: 100%;
+        /* نظام المحتوى الحقيقي */
+        .content-system {
+            background: white;
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: var(--shadow);
+            margin-bottom: 2rem;
         }
 
-        .cosmic-nav a:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--holy-glow);
-            background: rgba(46, 125, 50, 0.3);
-        }
-
-        /* أزرار الكون */
-        .cosmic-buttons {
+        .tabs {
             display: flex;
             gap: 1rem;
-        }
-
-        .cosmic-btn {
-            padding: 0.8rem 2rem;
-            border: none;
-            border-radius: 25px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.8rem;
-            font-size: 1.1rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .btn-supernova {
-            background: var(--cosmic-gold);
-            color: var(--space-black);
-            animation: pulse 2s infinite;
-        }
-
-        .btn-galaxy {
-            background: var(--celestial-blue);
-            color: var(--text-color);
-            border: 2px solid #4169E1;
-        }
-
-        .btn-blackhole {
-            background: linear-gradient(45deg, #000000, #333333);
-            color: var(--text-color);
-            border: 2px solid var(--accent-color);
-        }
-
-        @keyframes pulse {
-            0% { box-shadow: 0 0 0 0 rgba(255, 215, 0, 0.7); }
-            70% { box-shadow: 0 0 0 20px rgba(255, 215, 0, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(255, 215, 0, 0); }
-        }
-
-        .cosmic-btn:hover {
-            transform: translateY(-5px) scale(1.05);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-        }
-
-        /* البطل الكوني */
-        .hero-cosmic {
-            background: 
-                radial-gradient(circle at 20% 50%, rgba(26, 71, 42, 0.3), transparent 40%),
-                radial-gradient(circle at 80% 20%, rgba(46, 125, 50, 0.2), transparent 30%),
-                linear-gradient(135deg, rgba(0, 0, 0, 0.9), rgba(26, 71, 42, 0.8));
-            color: var(--text-color);
-            padding: 6rem 0;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-            border-bottom: 3px solid transparent;
-            border-image: linear-gradient(90deg, transparent, var(--accent-color), transparent) 1;
-        }
-
-        .hero-cosmic::before {
-            content: '✦';
-            position: absolute;
-            top: 20%;
-            right: 10%;
-            font-size: 3rem;
-            color: var(--accent-color);
-            animation: float 6s ease-in-out infinite;
-        }
-
-        .hero-cosmic::after {
-            content: '🕌';
-            position: absolute;
-            bottom: 30%;
-            left: 15%;
-            font-size: 4rem;
-            animation: float 8s ease-in-out infinite 1s;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(10deg); }
-        }
-
-        .hero-content {
-            max-width: 1000px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 2;
-        }
-
-        .cosmic-title {
-            font-size: 4.5rem;
             margin-bottom: 2rem;
-            background: linear-gradient(45deg, var(--accent-color), #32CD32, #FFFFFF);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            text-shadow: 0 0 30px rgba(212, 175, 55, 0.3);
-            animation: title-glow 3s ease-in-out infinite alternate;
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 1rem;
+            flex-wrap: wrap;
         }
 
-        @keyframes title-glow {
-            from { text-shadow: 0 0 20px rgba(212, 175, 55, 0.3); }
-            to { text-shadow: 0 0 40px rgba(212, 175, 55, 0.6), 0 0 60px rgba(50, 205, 50, 0.4); }
+        .tab {
+            padding: 0.5rem 1.5rem;
+            background: var(--light);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s;
         }
 
-        .hero-subtitle {
-            font-size: 1.8rem;
-            margin-bottom: 3rem;
-            line-height: 1.6;
-            color: #E0E0E0;
+        .tab.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
         }
 
-        /* الإحصائيات الكونية */
-        .cosmic-stats {
+        /* الشبكة العملية */
+        .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 4rem;
-            perspective: 1000px;
+            gap: 1.5rem;
+        }
+
+        .grid-2 { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+        .grid-3 { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+        .grid-4 { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+
+        /* الكروت العملية */
+        .card {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.5rem;
+            transition: all 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-color: var(--accent);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .card-title {
+            font-size: 1.2rem;
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        /* نظام المستخدمين الحقيقي */
+        .user-type-selector {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .user-type {
+            padding: 2rem 1rem;
+            text-align: center;
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .user-type.selected {
+            border-color: var(--primary);
+            background: rgba(26, 71, 42, 0.05);
+        }
+
+        .user-type-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        /* نظام الإدارة الحقيقي */
+        .admin-panel {
+            background: white;
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: var(--shadow);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
         }
 
         .stat-card {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 20px;
-            padding: 2rem;
             text-align: center;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.4s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .stat-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: var(--cosmic-gold);
-            transform: scaleX(0);
-            transition: transform 0.4s ease;
-        }
-
-        .stat-card:hover::before {
-            transform: scaleX(1);
-        }
-
-        .stat-card:hover {
-            transform: translateY(-10px) rotateX(5deg);
-            box-shadow: var(--holy-glow);
-            border-color: var(--accent-color);
+            padding: 1.5rem;
+            background: var(--light);
+            border-radius: 8px;
         }
 
         .stat-number {
-            font-size: 3.5rem;
+            font-size: 2rem;
             font-weight: bold;
-            background: var(--cosmic-gold);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: var(--primary);
+            display: block;
+        }
+
+        /* الجداول العملية */
+        .table-responsive {
+            overflow-x: auto;
+        }
+
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+
+        .table th,
+        .table td {
+            padding: 1rem;
+            text-align: right;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .table th {
+            background: var(--light);
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .table tr:hover {
+            background: rgba(26, 71, 42, 0.02);
+        }
+
+        /* النماذج العملية */
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-label {
             display: block;
             margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--dark);
         }
 
-        .stat-label {
-            font-size: 1.2rem;
-            color: #CCCCCC;
+        .form-control {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            font-size: 1rem;
+            transition: border 0.3s;
         }
 
-        /* النظام الكوني */
-        .cosmic-systems {
-            padding: 6rem 0;
-            background: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(26, 71, 42, 0.6));
-            position: relative;
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(26, 71, 42, 0.1);
         }
 
-        .systems-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2.5rem;
-            margin-top: 3rem;
+        /* نظام المراجعة الشرعية */
+        .review-system {
+            background: #fff8e1;
+            border: 2px solid var(--warning);
+            border-radius: 8px;
+            padding: 2rem;
         }
 
-        .system-card {
-            background: rgba(0, 0, 0, 0.7);
-            border-radius: 25px;
-            padding: 2.5rem;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
-            transition: all 0.4s ease;
-            border: 2px solid transparent;
-            position: relative;
+        .review-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            border-bottom: 1px solid rgba(255,193,7,0.3);
+        }
+
+        .review-item:last-child {
+            border-bottom: none;
+        }
+
+        /* نظام البث المباشر */
+        .live-system {
+            background: white;
+            border-radius: 8px;
             overflow: hidden;
+            box-shadow: var(--shadow);
         }
 
-        .system-card::after {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(45deg, transparent, rgba(255, 215, 0, 0.1), transparent);
-            transform: rotate(45deg);
-            transition: all 0.6s ease;
-        }
-
-        .system-card:hover::after {
-            left: 100%;
-        }
-
-        .system-card:hover {
-            transform: translateY(-15px) scale(1.02);
-            box-shadow: 0 20px 60px rgba(212, 175, 55, 0.3);
-            border-color: var(--accent-color);
-        }
-
-        .system-icon {
-            font-size: 4rem;
-            margin-bottom: 1.5rem;
-            display: inline-block;
-            animation: icon-spin 10s linear infinite;
-        }
-
-        @keyframes icon-spin {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-
-        .system-title {
-            font-size: 2rem;
-            margin-bottom: 1.5rem;
-            color: var(--accent-color);
-            position: relative;
-            display: inline-block;
-        }
-
-        .system-title::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 0;
-            width: 60px;
-            height: 3px;
-            background: var(--divine-green);
-        }
-
-        /* النظام الذكي */
-        .ai-system {
-            background: linear-gradient(135deg, #0a1929, #1a472a);
-            padding: 6rem 0;
-            border-top: 3px solid transparent;
-            border-bottom: 3px solid transparent;
-            border-image: linear-gradient(90deg, transparent, var(--accent-color), var(--secondary-color), transparent) 1;
-        }
-
-        .ai-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .ai-feature {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 20px;
-            padding: 2rem;
-            text-align: center;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(46, 125, 50, 0.3);
-        }
-
-        .ai-feature:hover {
-            background: rgba(46, 125, 50, 0.2);
-            transform: translateY(-10px);
-            border-color: var(--accent-color);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
-        }
-
-        /* النظام الاقتصادي */
-        .economic-system {
-            padding: 6rem 0;
-            background: radial-gradient(circle at center, rgba(26, 71, 42, 0.2), transparent),
-                        linear-gradient(135deg, #111111, #222222);
-        }
-
-        .currency-display {
-            background: linear-gradient(135deg, rgba(212, 175, 55, 0.1), rgba(46, 125, 50, 0.1));
-            border-radius: 20px;
-            padding: 3rem;
-            text-align: center;
-            margin: 3rem auto;
-            max-width: 800px;
-            border: 2px solid var(--accent-color);
-            box-shadow: var(--holy-glow);
-        }
-
-        /* الجامعة العالمية */
-        .university-system {
-            padding: 6rem 0;
-            background: linear-gradient(135deg, rgba(0, 100, 0, 0.1), rgba(26, 71, 42, 0.2));
+        .live-player {
+            width: 100%;
+            background: #000;
+            aspect-ratio: 16/9;
             position: relative;
         }
 
-        .faculty-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .faculty-card {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 20px;
-            padding: 2rem;
-            border: 2px solid transparent;
-            border-image: linear-gradient(45deg, var(--accent-color), var(--secondary-color)) 1;
-            transition: all 0.3s ease;
-        }
-
-        .faculty-card:hover {
-            background: rgba(46, 125, 50, 0.2);
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-        }
-
-        /* المشاريع العملاقة */
-        .mega-projects {
-            padding: 6rem 0;
-            background: linear-gradient(135deg, rgba(0, 0, 0, 0.9), rgba(26, 71, 42, 0.7));
-        }
-
-        .project-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .project-item {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 15px;
+        .live-info {
             padding: 1.5rem;
-            border-left: 5px solid var(--accent-color);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
         }
 
-        .project-item::before {
-            content: '🔥';
-            position: absolute;
-            right: 10px;
-            top: 10px;
-            opacity: 0.3;
+        /* النظام التعليمي */
+        .learning-system {
+            background: white;
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: var(--shadow);
         }
 
-        .project-item:hover {
-            background: rgba(212, 175, 55, 0.2);
-            transform: translateX(-10px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-        }
-
-        /* خطط التنفيذ */
-        .execution-plan {
-            padding: 6rem 0;
-            background: linear-gradient(135deg, rgba(26, 71, 42, 0.3), rgba(0, 0, 0, 0.7));
-        }
-
-        .timeline {
-            position: relative;
-            max-width: 1000px;
-            margin: 3rem auto 0;
-        }
-
-        .timeline::after {
-            content: '';
-            position: absolute;
-            width: 3px;
-            background: var(--cosmic-gold);
-            top: 0;
-            bottom: 0;
-            right: 50%;
-            margin-right: -1.5px;
-        }
-
-        .timeline-item {
-            padding: 1rem 2rem;
-            position: relative;
-            width: 50%;
-            margin-bottom: 3rem;
-        }
-
-        .timeline-item:nth-child(odd) {
-            right: 0;
-        }
-
-        .timeline-item:nth-child(even) {
-            right: 50%;
-        }
-
-        /* الأهداف الكونية */
-        .cosmic-goals {
-            padding: 6rem 0;
-            background: radial-gradient(circle at center, rgba(212, 175, 55, 0.1), transparent);
-        }
-
-        .goal-container {
+        .course-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
+            gap: 1.5rem;
+            margin-top: 2rem;
         }
 
-        .goal-card {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 20px;
+        /* النظام المالي */
+        .financial-system {
+            background: white;
+            border-radius: 8px;
             padding: 2rem;
+            box-shadow: var(--shadow);
+        }
+
+        .donation-methods {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .donation-method {
             text-align: center;
-            border: 2px solid transparent;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
+            padding: 1.5rem;
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            transition: all 0.3s;
         }
 
-        .goal-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, transparent 60%, rgba(212, 175, 55, 0.1) 100%);
-            z-index: -1;
+        .donation-method:hover {
+            border-color: var(--accent);
+            transform: translateY(-3px);
         }
 
-        .goal-card:hover {
-            transform: translateY(-10px) scale(1.02);
-            border-color: var(--accent-color);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-        }
-
-        /* الفوتر الكوني */
-        .cosmic-footer {
-            background: linear-gradient(135deg, rgba(26, 71, 42, 0.9), rgba(0, 0, 0, 0.9));
-            color: var(--text-color);
-            padding: 4rem 0 2rem;
-            position: relative;
-        }
-
-        .cosmic-footer::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: var(--cosmic-gold);
+        /* الفوتر العملي */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 3rem 0 1rem;
+            margin-top: 4rem;
         }
 
         .footer-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 3rem;
-            margin-bottom: 3rem;
+            gap: 2rem;
+            margin-bottom: 2rem;
         }
 
         .footer-section h3 {
-            color: var(--accent-color);
+            color: var(--accent);
             margin-bottom: 1.5rem;
-            font-size: 1.5rem;
-            position: relative;
-            display: inline-block;
+            font-size: 1.2rem;
         }
 
-        .footer-section h3::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            right: 0;
-            width: 50px;
-            height: 2px;
-            background: var(--divine-green);
+        .footer-links {
+            list-style: none;
         }
 
-        /* التأثيرات البصرية الإضافية */
-        .glow-text {
-            text-shadow: 0 0 10px currentColor, 0 0 20px currentColor;
+        .footer-links li {
+            margin-bottom: 0.5rem;
         }
 
-        .particles {
-            position: absolute;
-            pointer-events: none;
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
         }
 
-        .particle {
-            position: absolute;
-            width: 2px;
-            height: 2px;
-            background: var(--accent-color);
-            border-radius: 50%;
-            animation: particle-float linear infinite;
+        .footer-links a:hover {
+            color: var(--accent);
         }
 
-        @keyframes particle-float {
-            to { transform: translateY(-100vh); }
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #999;
+            font-size: 0.9rem;
         }
 
-        /* التجاوب مع الشاشات */
-        @media (max-width: 1200px) {
-            .cosmic-title { font-size: 3.5rem; }
-            .systems-grid { grid-template-columns: repeat(2, 1fr); }
-        }
-
+        /* التجاوب */
         @media (max-width: 768px) {
-            .cosmic-title { font-size: 2.5rem; }
-            .systems-grid { grid-template-columns: 1fr; }
-            .cosmic-nav ul { flex-direction: column; }
-            .timeline::after { right: 31px; }
-            .timeline-item { width: 100%; right: 0 !important; }
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            nav ul {
+                justify-content: center;
+            }
+            
+            .section {
+                padding: 2rem 0;
+            }
+            
+            .grid-2,
+            .grid-3,
+            .grid-4 {
+                grid-template-columns: 1fr;
+            }
         }
 
-        /* النصوص المتحركة */
-        .typing-animation {
-            overflow: hidden;
-            white-space: nowrap;
-            animation: typing 3.5s steps(40, end);
+        /* خدمات إضافية */
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 500;
         }
 
-        @keyframes typing {
-            from { width: 0 }
-            to { width: 100% }
+        .badge-success { background: var(--success); color: white; }
+        .badge-warning { background: var(--warning); color: var(--dark); }
+        .badge-danger { background: var(--danger); color: white; }
+        .badge-info { background: #17a2b8; color: white; }
+
+        .alert {
+            padding: 1rem;
+            border-radius: 4px;
+            margin: 1rem 0;
         }
 
-        /* تأثيرات الكارد */
-        .card-glow {
-            transition: box-shadow 0.3s ease;
+        .alert-success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
         }
 
-        .card-glow:hover {
-            box-shadow: 0 0 30px rgba(212, 175, 55, 0.5);
+        .alert-warning {
+            background: #fff3cd;
+            color: #856404;
+            border: 1px solid #ffeaa7;
         }
 
-        /* الأيقونات المتحركة */
-        .icon-float {
-            animation: float-icon 3s ease-in-out infinite;
-        }
-
-        @keyframes float-icon {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(10deg); }
-        }
-
-        /* شريط التقدم الكوني */
-        .progress-cosmic {
+        .progress-bar {
             height: 10px;
-            background: rgba(255, 255, 255, 0.1);
+            background: var(--border);
             border-radius: 5px;
             overflow: hidden;
-            margin: 1rem 0;
+            margin: 0.5rem 0;
         }
 
         .progress-fill {
             height: 100%;
-            background: var(--cosmic-gold);
+            background: var(--primary);
             border-radius: 5px;
-            animation: progress-grow 2s ease-in-out infinite alternate;
-        }
-
-        @keyframes progress-grow {
-            from { width: 30%; }
-            to { width: 70%; }
         }
     </style>
 </head>
 <body>
-    <!-- الهيدر الكوني -->
-    <header class="cosmic-header">
+    <!-- الهيدر العملي -->
+    <header>
         <div class="container">
             <div class="header-content">
-                <div class="cosmic-logo">
-                    <div class="logo-icon">🌌🕌🌟</div>
-                    <h1>منبر القصائد الشيعي الكوني</h1>
+                <div class="logo">
+                    <div style="font-size: 2rem;">🕌</div>
+                    <div>
+                        <h1>منبر القصائد الشيعي</h1>
+                        <p style="font-size: 0.9rem; opacity: 0.9;">النظام المتكامل للإدارة والتشغيل</p>
+                    </div>
                 </div>
                 
-                <nav class="cosmic-nav">
+                <nav>
                     <ul>
-                        <li><a href="#cosmic-hero">🏠 البداية الكونية</a></li>
-                        <li><a href="#systems">🛰️ النظم الكونية</a></li>
-                        <li><a href="#ai">🤖 الذكاء الأعلى</a></li>
-                        <li><a href="#economy">💰 الاقتصاد الكوني</a></li>
-                        <li><a href="#university">🎓 الجامعة العالمية</a></li>
-                        <li><a href="#projects">🚀 المشاريع العملاقة</a></li>
+                        <li><a href="#dashboard">لوحة التحكم</a></li>
+                        <li><a href="#content">المحتوى</a></li>
+                        <li><a href="#users">المستخدمون</a></li>
+                        <li><a href="#finance">المالية</a></li>
+                        <li><a href="#reports">التقارير</a></li>
                     </ul>
                 </nav>
                 
-                <div class="cosmic-buttons">
-                    <a href="#launch" class="cosmic-btn btn-supernova">🚀 إطلاق فوري</a>
-                    <a href="#investment" class="cosmic-btn btn-galaxy">💎 استثمر معنا</a>
+                <div style="display: flex; gap: 1rem;">
+                    <a href="#" class="btn btn-secondary">تسجيل الدخول</a>
+                    <a href="#" class="btn btn-primary">تسجيل جديد</a>
                 </div>
             </div>
         </div>
     </header>
 
-    <!-- البطل الكوني -->
-    <section class="hero-cosmic" id="cosmic-hero">
+    <!-- لوحة التحكم الرئيسية -->
+    <section class="section" id="dashboard">
         <div class="container">
-            <div class="hero-content">
-                <h1 class="cosmic-title typing-animation">
-                    النظام الكوني الرقمي الشامل للثقافة الشيعية
-                </h1>
-                
-                <p class="hero-subtitle">
-                    ليست منصة... بل كون رقمي متكامل<br>
-                    ليست خدمة... بل حضارة جديدة<br>
-                    ليست مشروعاً... بل ثورة تغيير عالمي
-                </p>
-                
-                <div class="cosmic-buttons" style="justify-content: center; margin-top: 3rem;">
-                    <a href="#join-now" class="cosmic-btn btn-supernova" style="font-size: 1.3rem;">
-                        🌟 انضم للثورة الآن
-                    </a>
-                    <a href="#watch-video" class="cosmic-btn btn-blackhole" style="font-size: 1.3rem;">
-                        📽️ شاهد الرؤية الكونية
-                    </a>
+            <h2 class="section-title">لوحة التحكم الرئيسية</h2>
+            
+            <!-- الإحصائيات -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <span class="stat-number">2,540</span>
+                    <div>رواديد مسجلين</div>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">1,250</span>
+                    <div>شعراء مسجلين</div>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">45,320</span>
+                    <div>محتوى منشور</div>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">125,430</span>
+                    <div>مستخدم نشط</div>
+                </div>
+            </div>
+
+            <!-- المحتوى الحديث -->
+            <div class="content-system" style="margin-top: 2rem;">
+                <h3 style="margin-bottom: 1.5rem;">أحدث المحتوى المضاف</h3>
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>النوع</th>
+                                <th>العنوان</th>
+                                <th>الرادود/الشاعر</th>
+                                <th>التاريخ</th>
+                                <th>الحالة</th>
+                                <th>الإجراءات</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><span class="badge badge-success">لطمية</span></td>
+                                <td>يا حسين يا مظلوم</td>
+                                <td>مهدي الحمداني</td>
+                                <td>2024-03-15</td>
+                                <td><span class="badge badge-success">معتمدة</span></td>
+                                <td>
+                                    <button class="btn btn-primary" style="padding: 0.25rem 0.5rem; font-size: 0.9rem;">عرض</button>
+                                    <button class="btn btn-secondary" style="padding: 0.25rem 0.5rem; font-size: 0.9rem;">تعديل</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><span class="badge badge-info">قصيدة</span></td>
+                                <td>في مدح الرسول الأعظم</td>
+                                <td>كاظم الأطرقچي</td>
+                                <td>2024-03-14</td>
+                                <td><span class="badge badge-warning">قيد المراجعة</span></td>
+                                <td>
+                                    <button class="btn btn-primary" style="padding: 0.25rem 0.5rem; font-size: 0.9rem;">عرض</button>
+                                    <button class="btn btn-success" style="padding: 0.25rem 0.5rem; font-size: 0.9rem;">قبول</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- نظام إدارة المحتوى -->
+    <section class="section" id="content" style="background: #f8f9fa;">
+        <div class="container">
+            <h2 class="section-title">نظام إدارة المحتوى</h2>
+            
+            <div class="content-system">
+                <div class="tabs">
+                    <div class="tab active">لطميات</div>
+                    <div class="tab">قصائد</div>
+                    <div class="tab">محاضرات</div>
+                    <div class="tab">أدعية ومناجاة</div>
+                    <div class="tab">البث المباشر</div>
                 </div>
 
-                <!-- الإحصائيات الكونية -->
-                <div class="cosmic-stats">
-                    <div class="stat-card">
-                        <span class="stat-number">∞</span>
-                        <span class="stat-label">إمكانيات غير محدودة</span>
-                        <div class="progress-cosmic">
-                            <div class="progress-fill"></div>
+                <!-- نظام رفع المحتوى -->
+                <div class="card" style="margin-bottom: 2rem;">
+                    <div class="card-header">
+                        <div class="card-title">رفع محتوى جديد</div>
+                    </div>
+                    <form>
+                        <div class="grid grid-2">
+                            <div class="form-group">
+                                <label class="form-label">نوع المحتوى</label>
+                                <select class="form-control">
+                                    <option value="">اختر النوع</option>
+                                    <option value="latmiya">لطمية</option>
+                                    <option value="poem">قصيدة</option>
+                                    <option value="lecture">محاضرة</option>
+                                    <option value="prayer">دعاء</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">العنوان</label>
+                                <input type="text" class="form-control" placeholder="أدخل عنوان المحتوى">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">الرادود/الشاعر</label>
+                                <select class="form-control">
+                                    <option value="">اختر من القائمة</option>
+                                    <option value="1">مهدي الحمداني</option>
+                                    <option value="2">كاظم الأطرقچي</option>
+                                    <option value="3">حسن الكربلائي</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">المناسبة</label>
+                                <select class="form-control">
+                                    <option value="">اختر المناسبة</option>
+                                    <option value="ashura">عاشوراء</option>
+                                    <option value="arbaeen">الأربعين</option>
+                                    <option value="mawlid">المولد النبوي</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">الملف الصوتي/المرئي</label>
+                            <input type="file" class="form-control">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">الوصف</label>
+                            <textarea class="form-control" rows="3" placeholder="وصف المحتوى"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary">رفع المحتوى</button>
+                    </form>
+                </div>
+
+                <!-- مكتبة المحتوى -->
+                <h3 style="margin: 2rem 0 1rem;">مكتبة المحتوى</h3>
+                <div class="grid grid-3">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title">لطميات عاشوراء</div>
+                            <span class="badge badge-success">245</span>
+                        </div>
+                        <p>مجموعة لطميات خاصة بيوم عاشوراء</p>
+                        <div style="margin-top: 1rem;">
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 85%;"></div>
+                            </div>
+                            <small>85% اكتمال التوثيق</small>
                         </div>
                     </div>
-                    <div class="stat-card">
-                        <span class="stat-number">🌍</span>
-                        <span class="stat-label">تغطية كل الكوكب</span>
-                        <div class="progress-cosmic">
-                            <div class="progress-fill" style="animation-delay: 0.5s;"></div>
+                    
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title">قصائد المدح</div>
+                            <span class="badge badge-info">178</span>
+                        </div>
+                        <p>قصائد في مدح الرسول والأئمة</p>
+                        <div style="margin-top: 1rem;">
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 70%;"></div>
+                            </div>
+                            <small>70% اكتمال التوثيق</small>
                         </div>
                     </div>
-                    <div class="stat-card">
-                        <span class="stat-number">⚡</span>
-                        <span class="stat-label">سرعة الضوء</span>
-                        <div class="progress-cosmic">
-                            <div class="progress-fill" style="animation-delay: 1s;"></div>
+                    
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title">محاضرات دينية</div>
+                            <span class="badge badge-warning">89</span>
+                        </div>
+                        <p>سلسلة محاضرات للعلماء</p>
+                        <div style="margin-top: 1rem;">
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 60%;"></div>
+                            </div>
+                            <small>60% اكتمال التوثيق</small>
                         </div>
                     </div>
                 </div>
@@ -818,461 +749,470 @@
         </div>
     </section>
 
-    <!-- النظم الكونية -->
-    <section class="cosmic-systems" id="systems">
+    <!-- نظام المستخدمين -->
+    <section class="section" id="users">
         <div class="container">
-            <h2 class="cosmic-title" style="text-align: center; font-size: 3.5rem;">
-                🪐 النظم الكونية المتكاملة
-            </h2>
+            <h2 class="section-title">نظام إدارة المستخدمين</h2>
             
-            <div class="systems-grid">
-                <!-- النظام التقني -->
-                <div class="system-card">
-                    <div class="system-icon">🛰️</div>
-                    <h3 class="system-title">الشبكة الفضائية</h3>
-                    <ul style="list-style: none; line-height: 2;">
-                        <li>✦ 12 قمر صناعي مخصص</li>
-                        <li>✦ اتصال مباشر مع كل مكان</li>
-                        <li>✦ جودة 8K فائقة الوضوح</li>
-                        <li>✦ خدمة مجانية عالمية</li>
-                    </ul>
+            <div class="content-system">
+                <!-- أنواع المستخدمين -->
+                <h3 style="margin-bottom: 1.5rem;">أنواع المستخدمين</h3>
+                <div class="user-type-selector">
+                    <div class="user-type selected">
+                        <span class="user-type-icon">🎤</span>
+                        <div>
+                            <strong>رادود</strong>
+                            <div style="font-size: 0.9rem; color: #666; margin-top: 0.5rem;">
+                                رفع وتنظيم اللطميات
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="user-type">
+                        <span class="user-type-icon">📝</span>
+                        <div>
+                            <strong>شاعر</strong>
+                            <div style="font-size: 0.9rem; color: #666; margin-top: 0.5rem;">
+                                كتابة ونشر القصائد
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="user-type">
+                        <span class="user-type-icon">👂</span>
+                        <div>
+                            <strong>مستمع</strong>
+                            <div style="font-size: 0.9rem; color: #666; margin-top: 0.5rem;">
+                                الاستماع والمشاركة
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="user-type">
+                        <span class="user-type-icon">📚</span>
+                        <div>
+                            <strong>باحث</strong>
+                            <div style="font-size: 0.9rem; color: #666; margin-top: 0.5rem;">
+                                البحث والتوثيق
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
-                <!-- النظام الاجتماعي -->
-                <div class="system-card">
-                    <div class="system-icon">🌐</div>
-                    <h3 class="system-title">المجتمع الكوني</h3>
-                    <ul style="list-style: none; line-height: 2;">
-                        <li>✦ تواصل بين الكواكب</li>
-                        <li>✦ مجتمعات افتراضية</li>
-                        <li>✦ تعاون عالمي</li>
-                        <li>✦ شبكة الثقة المطلقة</li>
-                    </ul>
-                </div>
-
-                <!-- النظام الإنتاجي -->
-                <div class="system-card">
-                    <div class="system-icon">🎬</div>
-                    <h3 class="system-title">إنتاج كوني</h3>
-                    <ul style="list-style: none; line-height: 2;">
-                        <li>✦ 50 استوديو احترافي</li>
-                        <li>✦ مسرح 5,000 مقعد</li>
-                        <li>✦ تقنيات هوليوود</li>
-                        <li>✦ إنتاج يومي مستمر</li>
-                    </ul>
-                </div>
-
-                <!-- النظام الواقعي -->
-                <div class="system-card">
-                    <div class="system-icon">🕶️</div>
-                    <h3 class="system-title">الواقع المتعدد</h3>
-                    <ul style="list-style: none; line-height: 2;">
-                        <li>✦ زيارة افتراضية كاملة</li>
-                        <li>✦ إعادة تمثيل التاريخ</li>
-                        <li>✦ تجارب غامرة</li>
-                        <li>✦ تعلم تفاعلي</li>
-                    </ul>
+                <!-- إدارة المستخدمين -->
+                <h3 style="margin: 2rem 0 1rem;">إدارة المستخدمين</h3>
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>الاسم</th>
+                                <th>النوع</th>
+                                <th>البلد</th>
+                                <th>تاريخ التسجيل</th>
+                                <th>الحالة</th>
+                                <th>الإجراءات</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>مهدي الحمداني</td>
+                                <td><span class="badge badge-success">رادود</span></td>
+                                <td>العراق</td>
+                                <td>2023-05-15</td>
+                                <td><span class="badge badge-success">نشط</span></td>
+                                <td>
+                                    <button class="btn btn-primary" style="padding: 0.25rem 0.5rem; font-size: 0.9rem;">تعديل</button>
+                                    <button class="btn btn-danger" style="padding: 0.25rem 0.5rem; font-size: 0.9rem;">إيقاف</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>كاظم الأطرقچي</td>
+                                <td><span class="badge badge-info">شاعر</span></td>
+                                <td>العراق</td>
+                                <td>2023-08-22</td>
+                                <td><span class="badge badge-success">نشط</span></td>
+                                <td>
+                                    <button class="btn btn-primary" style="padding: 0.25rem 0.5rem; font-size: 0.9rem;">تعديل</button>
+                                    <button class="btn btn-danger" style="padding: 0.25rem 0.5rem; font-size: 0.9rem;">إيقاف</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- النظام الذكي الأعلى -->
-    <section class="ai-system" id="ai">
+    <!-- نظام المراجعة الشرعية -->
+    <section class="section" style="background: #fff8e1;">
         <div class="container">
-            <h2 class="cosmic-title" style="text-align: center; font-size: 3.5rem;">
-                🤖 الذكاء الاصطناعي الكوني
-            </h2>
+            <h2 class="section-title">نظام المراجعة الشرعية</h2>
             
-            <div class="ai-grid">
-                <div class="ai-feature">
-                    <div style="font-size: 3rem; margin-bottom: 1rem;">🎵</div>
-                    <h3>تأليف ذكي</h3>
-                    <p>قصائد بإيحاء روحي وتلحين ذكي حسب المناسبة</p>
+            <div class="review-system">
+                <div class="alert alert-warning">
+                    <strong>ملاحظة:</strong> جميع المحتويات تخضع للمراجعة الشرعية قبل النشر
                 </div>
                 
-                <div class="ai-feature">
-                    <div style="font-size: 3rem; margin-bottom: 1rem;">🔮</div>
-                    <h3>تنبؤات دقيقة</h3>
-                    <p>تحليل الاتجاهات الثقافية والتنبؤ بالمستقبل</p>
-                </div>
+                <h3 style="margin-bottom: 1.5rem;">قائمة الانتظار للمراجعة</h3>
                 
-                <div class="ai-feature">
-                    <div style="font-size: 3rem; margin-bottom: 1rem;">🎭</div>
-                    <h3>أصوات تركيبية</h3>
-                    <p>تركيب أصوات الرواديد حسب الطلب</p>
-                </div>
-                
-                <div class="ai-feature">
-                    <div style="font-size: 3rem; margin-bottom: 1rem;">📊</div>
-                    <h3>تحليل متقدم</h3>
-                    <p>قياس الأثر الثقافي والنمذجة التنبؤية</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- النظام الاقتصادي -->
-    <section class="economic-system" id="economy">
-        <div class="container">
-            <h2 class="cosmic-title" style="text-align: center; font-size: 3.5rem;">
-                💰 النظام الاقتصادي الكوني
-            </h2>
-            
-            <div class="currency-display">
-                <div style="font-size: 4rem; margin-bottom: 1rem;">🪙</div>
-                <h3 style="font-size: 2.5rem; color: var(--accent-color);">
-                    عملة "دينار المنبر" الرقمية
-                </h3>
-                <p style="font-size: 1.2rem; margin-top: 1rem;">
-                    النظام المالي المستقل الذي يغير قواعد الاقتصاد الثقافي
-                </p>
-            </div>
-
-            <div class="systems-grid" style="margin-top: 4rem;">
-                <div class="system-card">
-                    <h3 class="system-title">بورصة الحقوق</h3>
-                    <p>تداول الحقوق الفنية والأدبية عالمياً</p>
-                </div>
-                
-                <div class="system-card">
-                    <h3 class="system-title">تمويل جماعي</h3>
-                    <p>دعم المشاريع الثقافية الكبرى</p>
-                </div>
-                
-                <div class="system-card">
-                    <h3 class="system-title">استثمارات ضخمة</h3>
-                    <p>صناديق استثمارية متخصصة</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- الجامعة العالمية -->
-    <section class="university-system" id="university">
-        <div class="container">
-            <h2 class="cosmic-title" style="text-align: center; font-size: 3.5rem;">
-                🎓 الجامعة العالمية الرقمية
-            </h2>
-            
-            <div class="faculty-grid">
-                <div class="faculty-card">
-                    <h3 style="color: var(--accent-color); font-size: 1.8rem;">
-                        🔬 كلية الدراسات العليا
-                    </h3>
-                    <ul style="margin-top: 1rem; list-style: none;">
-                        <li>✦ دكتوراه في العلوم الإسلامية الرقمية</li>
-                        <li>✦ ماجستير في الإعلام الديني المتطور</li>
-                        <li>✦ دبلومات متخصصة في 30 مجالاً</li>
-                    </ul>
-                </div>
-                
-                <div class="faculty-card">
-                    <h3 style="color: var(--accent-color); font-size: 1.8rem;">
-                        🧪 معاهد الأبحاث
-                    </h3>
-                    <ul style="margin-top: 1rem; list-style: none;">
-                        <li>✦ بحوث التراث الرقمي</li>
-                        <li>✦ دراسات المستقبل الإسلامي</li>
-                        <li>✦ مختبر الابتكار الثقافي</li>
-                    </ul>
-                </div>
-                
-                <div class="faculty-card">
-                    <h3 style="color: var(--accent-color); font-size: 1.8rem;">
-                        🎨 أكاديمية الفنون
-                    </h3>
-                    <ul style="margin-top: 1rem; list-style: none;">
-                        <li>✦ فن الإنشاد المتطور</li>
-                        <li>✦ كتابة الشعر الديني</li>
-                        <li>✦ الإنتاج الإعلامي الاحترافي</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- المشاريع العملاقة -->
-    <section class="mega-projects" id="projects">
-        <div class="container">
-            <h2 class="cosmic-title" style="text-align: center; font-size: 3.5rem;">
-                🚀 المشاريع العملاقة الفورية
-            </h2>
-            
-            <div class="project-list">
-                <div class="project-item">
-                    <h4>1. قبة السماء الرقمية</h4>
-                    <p>مسرح افتراضي يسع مليون متفرج</p>
-                </div>
-                
-                <div class="project-item">
-                    <h4>2. سلسلة بلاغة</h4>
-                    <p>إنتاج 1000 فيلم وثائقي عالمي</p>
-                </div>
-                
-                <div class="project-item">
-                    <h4>3. مشروع الذاكرة</h4>
-                    <p>أرشفة كل التراث الشفوي في الكون</p>
-                </div>
-                
-                <div class="project-item">
-                    <h4>4. أكاديمية القادة</h4>
-                    <p>تدريب 10,000 شاب في العام الأول</p>
-                </div>
-                
-                <div class="project-item">
-                    <h4>5. القمر الصناعي الأول</h4>
-                    <p>إطلاق 2025 - "قمر المنبر 1"</p>
-                </div>
-                
-                <div class="project-item">
-                    <h4>6. المتحف الافتراضي</h4>
-                    <p>عرض التاريخ الشيعي بتقنية 8K</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- خطط التنفيذ -->
-    <section class="execution-plan">
-        <div class="container">
-            <h2 class="cosmic-title" style="text-align: center; font-size: 3.5rem;">
-                ⏱️ خطة التنفيذ الكونية
-            </h2>
-            
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="system-card" style="margin: 0;">
-                        <h3>🚀 الأسبوع الأول</h3>
-                        <ul>
-                            <li>تشكيل فريق النخبة (100 خبير)</li>
-                            <li>تمويل أولي 10 مليون دولار</li>
-                            <li>بدء التطوير التقني</li>
-                            <li>الحملة الإعلامية العالمية</li>
-                        </ul>
+                <div class="review-item">
+                    <div>
+                        <strong>لطمية: يا أبو الفضل العباس</strong>
+                        <div style="font-size: 0.9rem; color: #666;">
+                            مرفوعة بواسطة: حسن الكربلائي • منذ 2 ساعة
+                        </div>
+                    </div>
+                    <div style="display: flex; gap: 0.5rem;">
+                        <button class="btn btn-success">✅ قبول</button>
+                        <button class="btn btn-danger">❌ رفض</button>
+                        <button class="btn btn-secondary">✏️ تعديل</button>
                     </div>
                 </div>
                 
-                <div class="timeline-item">
-                    <div class="system-card" style="margin: 0;">
-                        <h3>🌙 الشهر الأول</h3>
-                        <ul>
-                            <li>افتتاح المقر الرئيسي</li>
-                            <li>بدء التسجيلات الاحترافية</li>
-                            <li>إطلاق القناة التجريبية</li>
-                            <li>عقد الشراكات الدولية</li>
-                        </ul>
+                <div class="review-item">
+                    <div>
+                        <strong>قصيدة: في مدح الزهراء</strong>
+                        <div style="font-size: 0.9rem; color: #666;">
+                            مرفوعة بواسطة: علي الحائري • منذ 5 ساعات
+                        </div>
                     </div>
-                </div>
-                
-                <div class="timeline-item">
-                    <div class="system-card" style="margin: 0;">
-                        <h3>📅 الربع الأول</h3>
-                        <ul>
-                            <li>إطلاق النسخة الكونية</li>
-                            <li>المؤتمر العالمي الأول</li>
-                            <li>بدء المشاريع الكبرى</li>
-                            <li>الاكتفاء المالي الكامل</li>
-                        </ul>
+                    <div style="display: flex; gap: 0.5rem;">
+                        <button class="btn btn-success">✅ قبول</button>
+                        <button class="btn btn-danger">❌ رفض</button>
+                        <button class="btn btn-secondary">✏️ تعديل</button>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- الأهداف الكونية -->
-    <section class="cosmic-goals">
+    <!-- النظام المالي -->
+    <section class="section" id="finance">
         <div class="container">
-            <h2 class="cosmic-title" style="text-align: center; font-size: 3.5rem;">
-                🎯 الأهداف الكونية
-            </h2>
+            <h2 class="section-title">النظام المالي والتبرعات</h2>
             
-            <div class="goal-container">
-                <div class="goal-card">
-                    <h3>🔥 السنة الأولى</h3>
-                    <p style="font-size: 2rem; margin: 1rem 0;">مليون مستخدم يومي</p>
-                    <p>تغطية 100 دولة حول العالم</p>
+            <div class="financial-system">
+                <div class="grid grid-2">
+                    <div>
+                        <h3 style="margin-bottom: 1.5rem;">إحصائيات التبرعات</h3>
+                        <div class="stats-grid">
+                            <div class="stat-card">
+                                <span class="stat-number">125,000</span>
+                                <div>دينار عراقي</div>
+                                <small>إجمالي التبرعات</small>
+                            </div>
+                            <div class="stat-card">
+                                <span class="stat-number">2,450</span>
+                                <div>متبرع</div>
+                                <small>عدد المتبرعين</small>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h3 style="margin-bottom: 1.5rem;">طرق الدفع المتاحة</h3>
+                        <div class="donation-methods">
+                            <div class="donation-method">
+                                <div style="font-size: 2rem; margin-bottom: 1rem;">💳</div>
+                                <div>بطاقات ائتمان</div>
+                            </div>
+                            <div class="donation-method">
+                                <div style="font-size: 2rem; margin-bottom: 1rem;">🏦</div>
+                                <div>تحويل بنكي</div>
+                            </div>
+                            <div class="donation-method">
+                                <div style="font-size: 2rem; margin-bottom: 1rem;">📱</div>
+                                <div>محافظ إلكترونية</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                
-                <div class="goal-card">
-                    <h3>🌟 5 سنوات</h3>
-                    <p style="font-size: 2rem; margin: 1rem 0;">أكبر منصة ثقافية إسلامية</p>
-                    <p>تأثير مباشر على مليار شخص</p>
-                </div>
-                
-                <div class="goal-card">
-                    <h3>💫 10 سنوات</h3>
-                    <p style="font-size: 2rem; margin: 1rem 0;">نظام ثقافي بديل عالمي</p>
-                    <p>أرشفة كاملة للتاريخ والتراث</p>
+
+                <!-- نظام توزيع التبرعات -->
+                <div style="margin-top: 3rem;">
+                    <h3 style="margin-bottom: 1.5rem;">توزيع التبرعات</h3>
+                    <div class="grid grid-2">
+                        <div>
+                            <div class="form-group">
+                                <label class="form-label">نسبة الرواديد</label>
+                                <input type="range" class="form-control" min="0" max="100" value="60">
+                                <small>60% من التبرعات تذهب للرواديد</small>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="form-group">
+                                <label class="form-label">نسبة الصيانة والتطوير</label>
+                                <input type="range" class="form-control" min="0" max="100" value="30">
+                                <small>30% لتطوير المنصة</small>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- الفوتر الكوني -->
-    <footer class="cosmic-footer">
+    <!-- النظام التعليمي -->
+    <section class="section" style="background: #f8f9fa;">
+        <div class="container">
+            <h2 class="section-title">النظام التعليمي</h2>
+            
+            <div class="learning-system">
+                <div class="course-grid">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title">دورة الإنشاد الديني</div>
+                            <span class="badge badge-warning">مباشر</span>
+                        </div>
+                        <p>دورة متخصصة لتعليم أساسيات الإنشاد واللحن</p>
+                        <div style="margin-top: 1rem;">
+                            <div>المدرب: مهدي الحمداني</div>
+                            <div>الموعد: كل ثلاثاء 8 مساءً</div>
+                        </div>
+                        <button class="btn btn-primary" style="margin-top: 1rem; width: 100%;">الاشتراك</button>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title">ورشة كتابة الشعر</div>
+                            <span class="badge badge-info">مسجل</span>
+                        </div>
+                        <p>تعليم كتابة الشعر الديني والأدبي</p>
+                        <div style="margin-top: 1rem;">
+                            <div>المدرب: كاظم الأطرقچي</div>
+                            <div>المدة: 8 أسابيع</div>
+                        </div>
+                        <button class="btn btn-primary" style="margin-top: 1rem; width: 100%;">الاشتراك</button>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title">محاضرات في العقيدة</div>
+                            <span class="badge badge-success">مجاني</span>
+                        </div>
+                        <p>سلسلة محاضرات في العقيدة الإسلامية</p>
+                        <div style="margin-top: 1rem;">
+                            <div>المحاضر: الشيخ علي الكوراني</div>
+                            <div>متوفر دائماً</div>
+                        </div>
+                        <button class="btn btn-primary" style="margin-top: 1rem; width: 100%;">المشاهدة</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- التقارير والإحصائيات -->
+    <section class="section" id="reports">
+        <div class="container">
+            <h2 class="section-title">التقارير والإحصائيات</h2>
+            
+            <div class="content-system">
+                <div class="grid grid-3">
+                    <div class="card">
+                        <div class="card-title">أكثر المحتوى تفاعلاً</div>
+                        <div style="margin-top: 1rem;">
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                                <span>يا حسين - مهدي الحمداني</span>
+                                <span>125,430 👁️</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                                <span>فداء لأبي الفضل - حسن الكربلائي</span>
+                                <span>98,560 👁️</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-title">التوزيع الجغرافي</div>
+                        <div style="margin-top: 1rem;">
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                                <span>العراق</span>
+                                <span>45%</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                                <span>إيران</span>
+                                <span>25%</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                                <span>لبنان</span>
+                                <span>15%</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-title">نمو المستخدمين</div>
+                        <div style="margin-top: 1rem;">
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                                <span>هذا الشهر</span>
+                                <span>+2,540</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                                <span>هذا الأسبوع</span>
+                                <span>+850</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                                <span>اليوم</span>
+                                <span>+125</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- الفوتر -->
+    <footer>
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-section">
-                    <h3>🌌 النظام الكوني</h3>
-                    <p>ثورة رقمية تغير وجه الثقافة الشيعية في العالم</p>
-                    <div style="display: flex; gap: 1rem; margin-top: 1rem;">
-                        <span style="font-size: 2rem;">🛰️</span>
-                        <span style="font-size: 2rem;">🌍</span>
-                        <span style="font-size: 2rem;">🚀</span>
-                    </div>
+                    <h3>عن المنصة</h3>
+                    <p>منصة متكاملة لإدارة ونشر المحتوى الشيعي بشكل منظم وآمن، مع الالتزام التام بالضوابط الشرعية.</p>
                 </div>
                 
                 <div class="footer-section">
-                    <h3>📞 اتصل بالكون</h3>
-                    <ul style="list-style: none;">
-                        <li>📧 command@cosmic-platform.com</li>
-                        <li>📞 +964 770 COSMIC</li>
-                        <li>📍 المقر الكوني: النجف الأشرف</li>
+                    <h3>روابط سريعة</h3>
+                    <ul class="footer-links">
+                        <li><a href="#dashboard">لوحة التحكم</a></li>
+                        <li><a href="#content">المحتوى</a></li>
+                        <li><a href="#users">المستخدمون</a></li>
+                        <li><a href="#finance">المالية</a></li>
+                        <li><a href="#reports">التقارير</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-section">
-                    <h3>⚡ ابدأ الآن</h3>
-                    <div class="cosmic-buttons" style="flex-direction: column;">
-                        <a href="#invest-now" class="cosmic-btn btn-supernova" style="width: 100%; justify-content: center;">
-                            استثمر في الكون
-                        </a>
-                        <a href="#join-team" class="cosmic-btn btn-galaxy" style="width: 100%; justify-content: center; margin-top: 1rem;">
-                            انضم لفريق الكون
-                        </a>
-                    </div>
+                    <h3>الدعم</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">الشروط والأحكام</a></li>
+                        <li><a href="#">الخصوصية</a></li>
+                        <li><a href="#">الأسئلة الشائعة</a></li>
+                        <li><a href="#">الدعم الفني</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>اتصل بنا</h3>
+                    <ul class="footer-links">
+                        <li>📧 support@almambar.com</li>
+                        <li>📞 +964 770 123 4567</li>
+                        <li>📍 النجف الأشرف - العراق</li>
+                    </ul>
                 </div>
             </div>
             
-            <div style="text-align: center; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1);">
-                <p style="font-size: 1.2rem;">
-                    <span style="color: var(--accent-color);">🚀 هيا هيا هيا!</span><br>
-                    <span style="font-size: 1.5rem; margin-top: 1rem; display: block;">
-                        اللحظة الآن... الثانية الحاضرة... ابدأ!
-                    </span>
-                </p>
-                <div style="margin-top: 2rem; font-size: 0.9rem; opacity: 0.7;">
-                    © 2024 النظام الكوني الرقمي الشامل | كل الحقوق محفوظة للتاريخ
-                </div>
+            <div class="copyright">
+                <p>جميع الحقوق محفوظة &copy; 2024 منبر القصائد الشيعي</p>
+                <p style="margin-top: 0.5rem; font-size: 0.8rem;">هذا النظام قيد التطوير والتحديث المستمر</p>
             </div>
         </div>
     </footer>
 
     <script>
-        // تأثيرات الجسيمات الكونية
-        function createParticles() {
-            const particlesContainer = document.createElement('div');
-            particlesContainer.className = 'particles';
-            document.body.appendChild(particlesContainer);
-            
-            for (let i = 0; i < 50; i++) {
-                const particle = document.createElement('div');
-                particle.className = 'particle';
-                particle.style.left = Math.random() * 100 + 'vw';
-                particle.style.top = Math.random() * 100 + 'vh';
-                particle.style.animationDuration = (Math.random() * 10 + 10) + 's';
-                particle.style.animationDelay = Math.random() * 5 + 's';
-                particle.style.opacity = Math.random() * 0.5 + 0.1;
-                particlesContainer.appendChild(particle);
-            }
-        }
-        
-        // تأثيرات التمرير
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -100px 0px'
-        };
-        
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('animate-in');
+        // نظام التبويب البسيط
+        document.querySelectorAll('.tab').forEach(tab => {
+            tab.addEventListener('click', function() {
+                document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+
+        // اختيار نوع المستخدم
+        document.querySelectorAll('.user-type').forEach(type => {
+            type.addEventListener('click', function() {
+                document.querySelectorAll('.user-type').forEach(t => t.classList.remove('selected'));
+                this.classList.add('selected');
+            });
+        });
+
+        // معالجة النماذج
+        document.querySelectorAll('form').forEach(form => {
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('تم حفظ البيانات بنجاح');
+            });
+        });
+
+        // تحديث الإحصائيات الحية (محاكاة)
+        function updateLiveStats() {
+            const stats = document.querySelectorAll('.stat-number');
+            stats.forEach(stat => {
+                const current = parseInt(stat.textContent.replace(/,/g, ''));
+                if (!isNaN(current)) {
+                    const increment = Math.floor(Math.random() * 10);
+                    const newValue = current + increment;
+                    stat.textContent = newValue.toLocaleString();
                 }
             });
-        }, observerOptions);
-        
-        // تفعيل التأثيرات
-        document.addEventListener('DOMContentLoaded', () => {
-            createParticles();
-            
-            // مراقبة كل العناصر
-            document.querySelectorAll('.system-card, .ai-feature, .faculty-card').forEach(el => {
-                observer.observe(el);
-            });
-            
-            // تأثيرات النقر
-            document.querySelectorAll('.cosmic-btn').forEach(btn => {
-                btn.addEventListener('click', function(e) {
-                    if (this.href.includes('#')) {
-                        e.preventDefault();
-                        const targetId = this.getAttribute('href');
-                        const targetElement = document.querySelector(targetId);
-                        
-                        if (targetElement) {
-                            targetElement.scrollIntoView({
-                                behavior: 'smooth',
-                                block: 'start'
-                            });
-                        }
+        }
+
+        // تحديث الإحصائيات كل 30 ثانية
+        setInterval(updateLiveStats, 30000);
+
+        // نظام التنقل السلس
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                if (this.getAttribute('href').startsWith('#')) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
                     }
-                });
-            });
-            
-            // تأثيرات عشوائية
-            setInterval(() => {
-                const stars = document.querySelectorAll('.particle');
-                stars.forEach(star => {
-                    if (Math.random() > 0.95) {
-                        star.style.transform = `scale(${Math.random() * 2 + 1})`;
-                        star.style.opacity = Math.random() * 0.8 + 0.2;
-                    }
-                });
-            }, 1000);
-        });
-        
-        // تأثيرات النصوص
-        const cosmicTexts = document.querySelectorAll('.cosmic-title, .system-title');
-        cosmicTexts.forEach(text => {
-            text.addEventListener('mouseenter', function() {
-                this.style.textShadow = '0 0 30px currentColor, 0 0 60px currentColor';
-            });
-            
-            text.addEventListener('mouseleave', function() {
-                this.style.textShadow = '';
+                }
             });
         });
-        
-        // تأثيرات النظام الكوني
-        let glowInterval;
-        document.querySelectorAll('.system-card').forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                clearInterval(glowInterval);
-                let glow = 0;
-                glowInterval = setInterval(() => {
-                    glow = (glow + 0.1) % 1;
-                    this.style.boxShadow = `0 0 ${20 + glow * 20}px rgba(212, 175, 55, ${0.3 + glow * 0.2})`;
-                }, 50);
+
+        // محاكاة تحميل المحتوى
+        function simulateContentLoad() {
+            const progressBars = document.querySelectorAll('.progress-fill');
+            progressBars.forEach(bar => {
+                const currentWidth = parseInt(bar.style.width);
+                if (!isNaN(currentWidth) && currentWidth < 100) {
+                    bar.style.width = (currentWidth + 5) + '%';
+                }
             });
+        }
+
+        // تحديث أشرطة التقدم كل دقيقة
+        setInterval(simulateContentLoad, 60000);
+
+        // رسائل التنبيه
+        function showNotification(message, type = 'success') {
+            const alert = document.createElement('div');
+            alert.className = `alert alert-${type}`;
+            alert.textContent = message;
+            alert.style.position = 'fixed';
+            alert.style.top = '20px';
+            alert.style.right = '20px';
+            alert.style.zIndex = '10000';
+            alert.style.maxWidth = '300px';
             
-            card.addEventListener('mouseleave', function() {
-                clearInterval(glowInterval);
-                this.style.boxShadow = '';
-            });
-        });
-        
-        // رسالة التحفيز
-        setTimeout(() => {
+            document.body.appendChild(alert);
+            
+            setTimeout(() => {
+                alert.remove();
+            }, 5000);
+        }
+
+        // محاكاة إشعارات النظام
+        setInterval(() => {
             const messages = [
-                "🚀 الكون ينتظرك!",
-                "🌟 العظمة تبدأ الآن!",
-                "🔥 كن من بناة الحضارة!",
-                "💫 اكتب اسمك في التاريخ!"
+                'تمت إضافة محتوى جديد',
+                'هناك طلبات جديدة للمراجعة',
+                'تم استلام تبرع جديد',
+                'مستخدم جديد انضم للمنصة'
             ];
             
-            const randomMsg = messages[Math.floor(Math.random() * messages.length)];
-            console.log(`%c${randomMsg}`, 'color: #FFD700; font-size: 24px; font-weight: bold; text-shadow: 0 0 10px gold;');
-        }, 3000);
+            const randomMessage = messages[Math.floor(Math.random() * messages.length)];
+            showNotification(randomMessage);
+        }, 30000);
     </script>
 </body>
 </html>
